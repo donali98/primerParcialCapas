@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <title>Libros</title>
 </head>
 <body>
-    <table>
+    <table class="table">
         <thead>
             <th>Titulo</th>
             <th>Autor</th>
             <th>ISBN</th>
             <th>Categoria</th>
             <th>Fecha Ingreso</th>
+            <th>Estado</th>
         </thead>
         <th:block th:each="book, row: ${books}">
             <tr>
-                <th th:text="${book.title}"/>
-                <th th:text="${book.author}"/>
-                <th th:text="${book.isbn}"/>
-                <th th:text="${book.category.category}"/>
-                <th th:text="${book.dateDelegate}"/>
+                <td th:text="${book.title}"/>
+                <td th:text="${book.author}"/>
+                <td th:text="${book.isbn}"/>
+                <td th:text="${book.category.category}"/>
+                <td th:text="${book.dateDelegate}"/>
+                <td th:text="${book.statusDelegate}"/>
+
             </tr>
         </th:block>
     </table>
