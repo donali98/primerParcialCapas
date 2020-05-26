@@ -36,6 +36,12 @@ public class Book {
     @Column(name = "s_autor")
     private String author;
 
+    @NotEmpty(message = "El campo no debe estar vacio")
+    @Size(max =10, message = "El campo no debe tener mas de 10 caracteres")
+    @Column(name = "s_isbn")
+    private String isbn;
+
+
     @Column(name = "f_ingreso")
     @CreationTimestamp
     private LocalDateTime inDate;
@@ -102,6 +108,21 @@ public class Book {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getIsbn() {
+        return this.isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+
+
+    public String getStatusDelegate(){
+        if(this.state == null) return "";
+        else return this.state == true ? "Activo" : "Inactivo";
     }
 
     

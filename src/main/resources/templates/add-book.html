@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Libro</title>
+</head>
+<body>
+    <form th:action="@{/saveBook}" th:object="${book}" method="POST">
+        
+        <label for="title">Titulo</label>
+        <input type="text" name="title" id="title" th:field="*{title}">
+        <span th:errors="*{title}" style="color:#e81505"></span>
+
+        <label for="author">Autor</label>
+        <input type="text" name="author" id="author" th:field="*{author}">
+        <span th:errors="*{author}" style="color:#e81505"></span>
+
+        <label for="isbn">ISBN</label>
+        <input type="text" name="isbn" id="isbn" th:field="*{isbn}">
+        <span th:errors="*{isbn}" style="color:#e81505"></span>
+
+
+        <label for="category">Categoria</label>
+        <select name="category" id="category" th:field="*{category.codCategory}">
+            <option
+                th:each=" im: ${categories}"
+                th:value="${im.codCategory}"
+                th:text="${im.category}">
+            </option>
+        </select>
+
+        <label>Activo</label>
+        <input type="radio" th:field="*{state}" th:value="${true}" checked="checked">
+
+        <label>Inactivo</label>
+        <input type="radio" th:field="*{state}" th:value="${false}">
+
+        <input type="submit" value="enviar">
+
+    </form>
+</body>
+</html>
