@@ -1,6 +1,7 @@
 package com.dona.parcial.domain;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -118,6 +119,16 @@ public class Book {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getDateDelegate() {
+        if(this.inDate == null)
+            return "";
+        else {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy h:mm a");
+            String shortDate = this.inDate.format(formatter);
+            return shortDate;
+        }
     }
 
 

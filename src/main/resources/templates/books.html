@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>ISBN</th>
+            <th>Categoria</th>
+            <th>Fecha Ingreso</th>
+        </thead>
+        <th:block th:each="book, row: ${books}">
+            <tr>
+                <th th:text="${book.title}"/>
+                <th th:text="${book.author}"/>
+                <th th:text="${book.isbn}"/>
+                <th th:text="${book.category.category}"/>
+                <th th:text="${book.dateDelegate}"/>
+            </tr>
+        </th:block>
+    </table>
+</body>
+</html>

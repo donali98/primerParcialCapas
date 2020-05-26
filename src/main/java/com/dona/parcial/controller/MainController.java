@@ -98,4 +98,18 @@ public class MainController {
         return modelAndView;
     }
 
+    @GetMapping("/books")
+    public ModelAndView contributors() {
+        ModelAndView mav = new ModelAndView();
+        List<Book> books = null;
+        try {
+            books = bookService.findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        mav.addObject("books", books);
+        mav.setViewName("books");
+        return mav;
+    }
+
 }
