@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -47,6 +48,7 @@ public class Book {
     private LocalDateTime inDate;
 
     @Column(name = "b_estado")
+    @NotNull(message = "El campo no debe estar vacio")
     private Boolean state;
 
     @ManyToOne(fetch = FetchType.LAZY)

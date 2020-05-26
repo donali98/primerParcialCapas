@@ -35,6 +35,8 @@
 
         <label>Inactivo</label>
         <input type="radio" th:field="*{state}" th:value="${false}">
+        <span th:errors="*{state}" style="color:#e81505"></span>
+
 
         <input type="submit" value="enviar">
 
