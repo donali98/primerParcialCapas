@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar categoria</title>
+</head>
+<body>
+    <p th:text="${successMessage}"></p>
+    <form th:action="@{/saveCategory}" th:object="${category}" method="POST">
+        
+        <label for="category">Nombre Categoria</label>
+        <input type="text" name="category" id="category" th:field="*{category}">
+        <span th:errors="*{category}" style="color:#e81505"></span>
+
+
+        <input type="submit" value="enviar">
+
+    </form>
+</body>
+</html>

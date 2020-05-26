@@ -1,10 +1,14 @@
 package com.dona.parcial.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -19,9 +23,12 @@ public class Category {
     private Integer codCategory;
 
     @NotEmpty(message = "El campo no debe estar vacio")
-    @Size(max =50, message = "El campo no debe tener mas de 30 caracteres")
+    @Size(max =50, message = "El campo no debe tener mas de 50 caracteres")
     @Column(name = "s_categoria")
     private String category;
+
+    @OneToMany(mappedBy = "category",fetch = FetchType.LAZY)
+    private List<Book> books;
 
 
     public Category() {}
@@ -43,5 +50,13 @@ public class Category {
         this.category = category;
     }
 
+
+    public List<Book> getBooks() {
+        return this.books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 
 }
